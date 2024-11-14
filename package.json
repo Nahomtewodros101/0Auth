@@ -4,11 +4,11 @@
   "description": "Authentication with 0 auth and google services api for one tap verification",
   "main": "server.js",
   "type": "module",
-  "scripts": {
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
+ "scripts": {
+  "server": "nodemon server.js",
+  "client": "npm run dev --prefix client",
+  "dev": "concurrently \"npm run server\" \"npm run dev\""
+},
   "keywords": [
     "chefche"
   ],

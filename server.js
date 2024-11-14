@@ -18,7 +18,9 @@ app.use(cors());
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    console.log(`MongoDB connected successfully to ${mongoose.connection.host}`);
+    console.log(
+      `MongoDB connected successfully to ${mongoose.connection.host}`
+    );
 
     // Start the server only after MongoDB connection is successful
     app.listen(port, () => {
