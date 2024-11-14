@@ -1,2 +1,4 @@
-/node_modules
-/.env
+# Ignore node_modules in both root and client folder
+node_modules/
+client/node_modules/
+.env
