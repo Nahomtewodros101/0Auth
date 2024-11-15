@@ -20,23 +20,23 @@ const Login = () => {
           password,
         }
       );
-      console.log(response.data); // Handle response data as needed
-      navigate("/"); // Redirect to home after successful login
+      console.log(response.data);
+      navigate("/");
       toast.success("Login successful!");
-    } catch (err) {
-      toast.error(
-        "Login failed: " + err.response?.data?.message || "Unknown error"
-      );
+    } catch (error) {
+      console.log(error);
+      toast.error("You dont have an account yet. Please register first.");
     }
   };
 
   return (
-    <div className="flex items-center justify-center rounded-3xl shadow-black shadow-lg h-screen bg-gray-100">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+    <div className="flex items-center w-[40rem] flex-col justify-center rounded-3xl shadow-black shadow-lg h-screen bg-gradient-to-r from-white via-gray-100 to-grey-100">
+      <h1 className="font-extrabold text-4xl">Join Our Community!</h1>
+      <div className="max-w-md w-full bg-transparent p-8 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4 ">
           <div>
-            <label className="block text-gray-700">Email:</label>
+            <label className="block text-gray-700 font-londrina">Email:</label>
             <input
               type="email"
               value={email}
@@ -46,7 +46,9 @@ const Login = () => {
             />
           </div>
           <div>
-            <label className="block text-gray-700">Password:</label>
+            <label className="block text-gray-700 font-londrina">
+              Password:
+            </label>
             <input
               type="password"
               value={password}
@@ -65,7 +67,7 @@ const Login = () => {
         <div className="text-center mt-4">
           <Link
             to="/register"
-            className="text-gray-500 font-bold hover:underline"
+            className="text-gray-500 font-bold hover:underline font-londrina"
           >
             Register <FontAwesomeIcon icon="fa-solid fa-plus" />
           </Link>

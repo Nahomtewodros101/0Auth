@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Bangers&family=Geist+Mono:wght@100..900&family=Londrina+Sketch&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 ::selection {
   color: black;
+}
+html {
+  scroll-behavior: smooth;
 }
