@@ -14,7 +14,7 @@ import reactImage from "../images/react.png";
 const Homepage = () => {
   return (
     <div className="bg-gradient-to-r from-white via-gray-100 to-white h-[100vh] rounded-br-2xl">
-      <nav className="p-4 rounded-xl shadow-2xl bg-black/10 shadow-black text-[1.5rem] sticky top-5 z-50">
+      <nav className="p-4 rounded-xl shadow-sm bg-black/10 shadow-black text-[1.5rem] sticky top-5 z-50">
         <ul className="space-x-[5rem] flex items-center justify-evenly">
           <li className="flex items-center space-x-2">
             <img

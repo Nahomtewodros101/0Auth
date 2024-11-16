@@ -6,6 +6,7 @@ import axios from "axios";
 
 const Register = () => {
   const [formData, setFormData] = useState({
+    name: "",
     username: "",
     email: "",
     password: "",
@@ -22,21 +23,24 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submitted"); // Check if this is logged
 
     try {
       const response = await axios.post(
         "http://localhost:5500/api/users/register",
         formData
       );
+      console.log("Response:", response); // Log response data
 
       if (response.status === 200) {
+        console.log(response.data);
+        const userData = response.data;
+        localStorage.setItem("user", JSON.stringify(userData));
+        navigate("/");
         toast.success("Registration successful!");
-
-        setTimeout(() => {
-          navigate("/homepage");
-        }, 2000); // Redirect after 2 seconds
       }
     } catch (err) {
+      console.error(err); // Log error details
       if (err.response && err.response.data) {
         toast.error(err.response.data.message || "Registration failed!");
       } else {
@@ -51,6 +55,23 @@ const Register = () => {
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-sm">
         <h1 className="text-2xl font-bold mb-6 text-center">Register</h1>
         <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-black focus:border-white focus:ring-500"
+              placeholder="Enter your name"
+            />
+          </div>
           <div className="mb-4">
             <label
               htmlFor="username"
@@ -118,7 +139,7 @@ const Register = () => {
         </div>
         <div className="mt-4 text-center">
           <Link to="/" className="text-black hover:underline">
-            Change your mind ?
+            Change your mind?
           </Link>
         </div>
       </div>
